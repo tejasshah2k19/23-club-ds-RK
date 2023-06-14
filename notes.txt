@@ -1,0 +1,47 @@
+DS ? why we need ds ? 
+
+
+DS -> data -> store -> read -> manipulate 
+
+1)time complexity  ->time taken by algo  
+2)space complexity ->space taken by algo 
+
+
+for(int i=1;i<=10;i++){
+ printf("hi");
+}
+
+B=> 1 second 
+A=> 1 , 2 , 3 2  1 3 => 2 second 
+W=> 3
+ 
+-------------------------------------------------------------------------
+                                DS 
+        Linear                                  NonLinear 
+Array , Stack , Queue , LinkedList              Tree , Graph , HashTable 
+
+
+
+
+Queue -> FirstInFirstOut -> fcfs 
+Stack -> LastInFirstOut => lifo 
+
+whatsapp -> chat 
+camera -> gallery 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
