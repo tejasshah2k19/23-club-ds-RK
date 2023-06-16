@@ -30,7 +30,17 @@ whatsapp -> chat
 camera -> gallery 
 
 
+-------------------------------------------------
 
+linkedlist -->          node 
+                data               address
+
+struct 
+
+class 
+
+
+                
 
 
 
