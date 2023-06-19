@@ -4,14 +4,16 @@ class Node:
         self.next = None  
 
 
-
-
-
 head = None 
 
  
 while True:
-    print("1 For add\n2 For List\nEnter Choice")
+    print("1 For add\n2 For List")
+    print("3 For addBeg")
+    print("4 For InsertAfter")
+    print("5 For DeleteLast")
+    print("6 Fpr DeleteBeg")
+    print("\nEnter Choice")
     choice = int(input())
 
     if choice == 1:
@@ -34,5 +36,43 @@ while True:
         while p!=None:
             print(p.data) # 10 20 30 40
             p = p.next  # 
+    elif choice == 3:
+        print("enter number")
+        num = int(input()) # 40 
+        tmp = Node() # create node 
+        tmp.data = num # set data into node 
+        tmp.next = head # assign head address in next of tmp
+        head = tmp # move head to tmp  
+    elif choice == 4:
+        print("Enter source and new Num")
+        source = int(input())
+        num = int(input())
+
+        tmp = Node() 
+        tmp.data = num 
+
+        p = head 
+
+        while p.data != source:
+            p=p.next  
+
+        q = p.next 
+        p.next = tmp
+        tmp.next = q 
+    
+    elif choice == 5:
+        p = head 
+
+        while p.next != None :
+            p = p.next 
+
+        q = head 
+        while q.next != p :
+            q = q.next 
+
+        q.next = None     
+        del p 
+
+
     elif choice == 0:
             exit(0)
