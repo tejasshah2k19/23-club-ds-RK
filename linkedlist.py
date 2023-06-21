@@ -12,7 +12,8 @@ while True:
     print("3 For addBeg")
     print("4 For InsertAfter")
     print("5 For DeleteLast")
-    print("6 Fpr DeleteBeg")
+    print("6 For DeleteBeg")
+    print("7 For Sort")
     print("\nEnter Choice")
     choice = int(input())
 
@@ -72,7 +73,18 @@ while True:
 
         q.next = None     
         del p 
-
+    elif choice == 7:    
+        p= head 
+        while p!= None:
+            q = head 
+            while q.next != None:
+                t = q.next
+                if q.data > t.data :
+                    tmp = q.data 
+                    q.data = t.data 
+                    t.data = tmp
+                q =q.next 
+            p=p.next 
 
     elif choice == 0:
             exit(0)
