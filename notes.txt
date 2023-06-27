@@ -50,6 +50,22 @@ y =>  [  22 32  45 52   ]
 
 xy => [   11 21 22 31 32 41 45 52  ]
 
+----------------------------------------------------------------
+
+non linear -> 
+
+        tree#    
+        graph 
+
+
+        forest-> node -> n number node connected 
+        binary tree -> node -> max 2 node connected {0,1,2}
+                 binary search tree [ BST ] -> parent node-> small left | big right 
+                        1) it is a binary tree ( child : 0 1 2 )
+                        2) left < parent < right 
+                        
+         
+
 
 
 
