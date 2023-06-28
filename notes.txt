@@ -63,7 +63,9 @@ non linear ->
                  binary search tree [ BST ] -> parent node-> small left | big right 
                         1) it is a binary tree ( child : 0 1 2 )
                         2) left < parent < right 
-                        
+--------------------------------------------------------------------------------
+
+
          
 
 
