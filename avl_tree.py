@@ -25,6 +25,33 @@ def calculateHeight(root):
         rh = root.right.height 
     return max(lh,rh)
 
+def leftRotate(root): #30 
+        #set 
+        rootRight = root.right #50
+        t = rootRight.left 
+        
+        #rotation
+        rootRight.left = root
+        root.right = t  
+
+        #height 
+        root.height = 1+calculateHeight(root)   
+        rootRight.height = 1+calculateHeight(rootRight)   
+
+        return rootRight
+def rightRotate(root):
+    #set 
+    newRoot = root.left 
+    t = newRoot.right 
+    #rotate 
+    newRoot.right = root 
+    root.left = t 
+ 
+    root.height = 1+calculateHeight(root)   
+    newRoot.height = 1+calculateHeight(newRoot)   
+
+    return newRoot
+
 def insert(root,data): # 500,350  300,350   400,350   None,350
     if root == None:
         root= Node()
@@ -37,19 +64,28 @@ def insert(root,data): # 500,350  300,350   400,350   None,350
             root.right = insert(root.right,data)
     root.height  = 1+calculateHeight(root)   
 
-    bf = calculateBF(root)
+    bf = calculateBF(root)#30 
     if bf <= -2 and root.right.data < data : #-2 -3 -4 
         #right  right 
-        print(root.data," RR ")
+        print(root.data," RR ") 
+        return leftRotate(root)
+
+
     elif bf >= 2 and root.left.data > data: #2 3 4 5 
         #left left 
         print(root.data," LL ")
+        return rightRotate(root)
     elif bf <= -2 and root.right.data  > data : 
         #right left 
         print(root.data," RL ")
+        root.right = rightRotate(root.right)
+        return leftRotate(root)
+    
     elif bf >= 2 and root.left.data < data: #2 3 4 5 
         #left right  
         print(root.data," LR ")
+        root.left = leftRotate(root.left)
+        return rightRotate(root)
     
     
     return root  
