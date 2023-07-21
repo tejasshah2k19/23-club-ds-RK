@@ -97,6 +97,63 @@ def inorder(root):  #left-root-right
         print(root.data,"(",root.height,")",end=" ")
         inorder(root.right)
 
+
+def deleteNode(root,data): #200,175
+    if root is None: 
+        return root 
+    
+    if root.data == data :
+        #0 1 child -> left  
+        if root.left == None : 
+            tmp = root.right 
+            del root 
+            return tmp
+        elif root.right == None: 
+            tmp = root.left 
+            del root
+            return tmp 
+        else:
+            #2 child 
+            success = root.right 
+            while success.left != None:
+                success = success.left 
+            root.data = success.data 
+            return deleteNode(root.right,success.data)
+        
+    elif root.data > data :
+        #left 
+        root.left = deleteNode(root.left,data)
+    elif root.data < data :
+        #right 
+        root.right = deleteNode(root.right,data)
+    
+    root.height  = 1+calculateHeight(root)   
+
+    bf = calculateBF(root)#30 
+    
+    if bf <= -2 and root.right.data < data : #-2 -3 -4 
+        #right  right 
+        print(root.data," RR ") 
+        return leftRotate(root)
+
+
+    elif bf >= 2 and root.left.data > data: #2 3 4 5 
+        #left left 
+        print(root.data," LL ")
+        return rightRotate(root)
+    elif bf <= -2 and root.right.data  > data : 
+        #right left 
+        print(root.data," RL ")
+        root.right = rightRotate(root.right)
+        return leftRotate(root)
+    
+    elif bf >= 2 and root.left.data < data: #2 3 4 5 
+        #left right  
+        print(root.data," LR ")
+        root.left = leftRotate(root.left)
+        return rightRotate(root)
+    
+
 root = None
 
 
